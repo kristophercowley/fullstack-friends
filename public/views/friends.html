@@ -1,8 +1,24 @@
 <div ng-repeat="friend in friends">
   <div>
-    id: {{friend.id}} <br />
-    name: {{friend.firstName}} {{friend.lastName}} <br />
+
+    id: {{friend.id}} <br /> name: {{friend.firstName}} {{friend.lastName}} <br /> phone: {{friend.phoneNumber}}
+    <br /> Street Address: {{friend.streetAddress}}
+    <br /> <img ng-if="friend.thumbnail" style="border-radius:50px" height="50px" ng-src="{{friend.thumbnail}}" alt="Thumbnail">
+    <img ng-if="!friend.thumbnail" style="border-radius:50px" height="50px" src="http://vignette4.wikia.nocookie.net/jamesbond/images/6/61/Generic_Placeholder_-_Profile.jpg/revision/latest?cb=20121227201208"
+      alt="Thumbnail"> <br />
+
+
     <button ng-click="unFriend(friend)">un-Friend</button>
+    <button ng-click="edit = !edit">Open/Close Edit</button>
+    <form ng-show="edit" ng-submit="editFriend(friend)">
+      <input ng-model="friend.firstName" placeholder="First">
+      <input ng-model="friend.lastName" placeholder="Last">
+      <input ng-model="friend.phoneNumber" placeholder="phone">
+      <input ng-model="friend.streetAddress" placeholder="Street Address">
+      <input ng-model="friend.thumbnail" placeholder="Image Url">
+      <button >Submit Edit</button>
+    </form>
+
   </div>
   <hr>
 </div>
@@ -11,5 +27,9 @@
 <form ng-submit="addFriend()">
   <input ng-model="friend.firstName" placeholder="First">
   <input ng-model="friend.lastName" placeholder="Last">
+  <input ng-model="friend.phoneNumber" placeholder="phone">
+  <input ng-model="friend.streetAddress" placeholder="Street Address">
+  <input ng-model="friend.thumbnail" placeholder="Image Url">
+
   <button>Add Friend</button>
 </form>

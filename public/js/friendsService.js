@@ -17,7 +17,10 @@ app.service('friendsService', function($http, $q) {
       url: 'api/friends',
       data: {
         firstName: friend.firstName,
-        lastName: friend.lastName
+        lastName: friend.lastName,
+        phoneNumber: friend.phoneNumber,
+        streetAddress: friend.streetAddress,
+        thumbnail: friend.thumbnail
       }
     })
   };
@@ -26,6 +29,21 @@ app.service('friendsService', function($http, $q) {
     return $http({
       method: 'DELETE',
       url: 'api/friends/' + friend.id,
+    });
+  };
+  
+  this.editFriend = function(friend) {
+    console.log('put method called')
+    return $http({
+      method: 'PUT',
+      url: 'api/friends/' + friend.id,
+      data: {
+        firstName: friend.firstName,
+        lastName: friend.lastName,
+        phoneNumber: friend.phoneNumber,
+        streetAddress: friend.streetAddress,
+        thumbnail: friend.thumbnail
+      }
     });
   };
 

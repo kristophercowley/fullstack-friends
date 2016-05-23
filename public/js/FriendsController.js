@@ -22,6 +22,12 @@ app.controller('FriendsController', function($scope, friendsService) {
       $scope.getFriends();
     });
   }
+  
+   $scope.editFriend = function(friend){
+    friendsService.editFriend(friend).then(function(res){
+      $scope.getFriends();
+    });
+  }
 
 
 });
