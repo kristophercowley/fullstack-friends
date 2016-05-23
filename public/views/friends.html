@@ -10,6 +10,7 @@
 
     <button ng-click="unFriend(friend)">un-Friend</button>
     <button ng-click="edit = !edit">Open/Close Edit</button>
+    <hr>
     <form ng-show="edit" ng-submit="editFriend(friend)">
       <input ng-model="friend.firstName" placeholder="First">
       <input ng-model="friend.lastName" placeholder="Last">

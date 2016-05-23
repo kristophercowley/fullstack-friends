@@ -14,8 +14,12 @@
 
 	function ResourceSchema() {
 		return schemator.defineSchema(model, {
-			firstName: 'string',
-			lastName: 'string'
+			firstName: { type: 'string', unique: false, isRequired: true },
+			lastName: { type: 'string' , unique: false, isRequired: true },
+			phoneNumber: { type: 'string || undefined', unique: false, isRequired: false },
+			streetAddress: { type: 'string || undefined', unique: false, isRequired: false},
+			thumbnail: { type: 'string || undefined', unique: false, isRequired: false},
+
 		})
 	}
 
